@@ -1,0 +1,32 @@
+[package]
+name = "inventory-grpc-rust"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "server"
+path = "src/main.rs"
+
+[[bin]]
+name = "cli"
+path = "src/cli.rs"
+
+[dependencies]
+tonic = "0.10.2"
+prost = "0.12.3"
+tokio = { version = "1.35.1", features = ["macros", "rt-multi-thread"] }
+tokio-stream = { version = "0.1.14", features = ["net"] }
+futures = "0.3.29"
+clap = { version = "4.4.11", features = ["derive"] }
+tonic-reflection = "0.10.2"
+futures-core = "0.3.28"
+
+[build-dependencies]
+tonic-build = "0.10.2"
+
+[dev-dependencies]
+uuid = { version = "1.6.1", features = ["v4", "fast-rng"] }
+futures-util = "0.3.29"
+anyhow = "1.0.76"
